@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Dropdown, Toggle, Menu, MenuItem, Button } from 'react-bootstrap';
 import { getInfo } from '../utils/api'
@@ -30,6 +30,10 @@ const IndividualResult = ({individualInfo}) => {
   )
 }
 
+IndividualResult.propTypes = {
+  individualInfo: PropTypes.object.isRequired
+}
+
 const StateResults = ({info, handleClick}) => {
   return (
     <section style={{width:'48%'}}>
@@ -50,10 +54,13 @@ const StateResults = ({info, handleClick}) => {
   )
 }
 
+StateResults.propTypes = {
+  info: PropTypes.array.isRequired,
+  handleClick: PropTypes.func.isRequired
+}
+
 
 const DropdownMenu = ({id, selected, list, selectedID, selectedChange, label}) => {
-  // console.log(id, selected, list, selectedChange)
-
   return (
     <Dropdown id={id} style={{marginRight:'7px'}}>
       <Dropdown.Toggle bsStyle='primary' style={{minWidth:'140px'}}>
@@ -121,7 +128,7 @@ class App extends Component {
     return(
       <section style={{display:'flex', flexDirection:'column'}}>
         <div>
-          <h1 style={{fontFamily:'Avenir',fontWeight:'bold', fontSize:'28px', color:'#5D9CF8', paddingBottom:'50px', borderBottom:'1px solid #F4F4F5'}}>Who's My Representative?</h1>
+          <h1 style={{fontFamily:'Avenir',fontWeight:'bold', fontSize:'28px', color:'#5D9CF8', paddingBottom:'40px', borderBottom:'1px solid #F4F4F5'}}>Who's My Representative?</h1>
         </div>
         <div>
           <DropdownMenu id='Rep/Sen' selected={this.state.selectedRep} selectedID='Rep' label='Rep/Res' list={[{name:'Rep/Sen', abbreviation:null},{name:'Representatives', abbreviation:'Representatives'}, {name:'Senators', abbreviation:"Senators"}]} selectedChange={this.selectedChange} />
