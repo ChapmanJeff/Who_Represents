@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open",
-    "create": "webpack"
+    "start": "webpack-dev-server --progress --open",
+    "build": "NODE_ENV='production' node_modules/.bin/webpack -p"
   },
   "babel": {
     "presets": [
@@ -13,20 +13,14 @@
       "react"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ChapmanJeff/Who_Represents.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ChapmanJeff/Who_Represents/issues"
-  },
-  "homepage": "https://github.com/ChapmanJeff/Who_Represents#readme",
   "dependencies": {
     "axios": "^0.16.2",
+    "prop-types": "^15.5.10",
     "react": "^15.5.4",
+    "react-bootstrap": "^0.31.0",
     "react-dom": "^15.5.4"
   },
   "devDependencies": {
